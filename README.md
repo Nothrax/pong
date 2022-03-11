@@ -1,7 +1,7 @@
 # Pong
 Written and tested on ubuntu 20.04.
 
-#Prerequisites
+# Prerequisites
 * cmake >= 3.20
 * Qt5
 * gcc >= 9.3
