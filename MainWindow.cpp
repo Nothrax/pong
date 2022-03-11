@@ -41,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     _stopLabel = new QLabel(this);
     QString temp = tr("<font color='%1'>%2</font>");
-    _stopLabel->setText(temp.arg("#FFFFFF", "Press space for pause."));
+    _stopLabel->setText(temp.arg("#FFFFFF", "SPACE - pause | R - reset"));
     _stopLabel->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
     _stopLabel->setAlignment(Qt::AlignCenter);
     font.setPointSize(10);
@@ -111,8 +111,15 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
 
 
 void MainWindow::keyPressEvent(QKeyEvent *event) {
-    if (event->key() == Qt::Key_Space) {
-        _isPaused = !_isPaused;
+    switch(event->key()){
+        case Qt::Key_Space:
+            _isPaused = !_isPaused;
+            break;
+        case Qt::Key_R:
+            _computerScore = 0;
+            _playerScore = 0;
+            resetBall();
+            break;
     }
 }
 
